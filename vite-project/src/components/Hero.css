@@ -1,0 +1,285 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url('/will.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  color: #f5f5f5;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 0, 72, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 110%, rgba(35, 73, 255, 0.6), transparent 60%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 50%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3.75rem 3.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.hero-left {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 4.2rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #ff1b2d;
+  text-shadow:
+    0 0 8px rgba(179, 0, 0, 0.7),
+    0 0 18px rgba(179, 0, 0, 0.5);
+}
+
+.hero-desc {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(243, 243, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.hero-btn {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.9rem 1.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle at 10% 0, #ff5b7b 0%, #ff1744 28%, #7c0015 100%);
+  color: #f5f5f5;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(255, 44, 99, 0.7);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 34px rgba(255, 44, 99, 0.95);
+  filter: brightness(1.05);
+}
+
+.hero-right {
+  position: relative;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  text-align: right;
+}
+
+.hero-right-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3rem;
+  margin: 0;
+  text-shadow:
+    0 0 8px rgba(179, 0, 0, 0.7),
+    0 0 18px rgba(179, 0, 0, 0.5);
+}
+
+.hero-right-text {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(233, 233, 255, 0.92);
+  margin: 0;
+}
+
+.fire-reveal {
+  background-position: 40% 7% !important;
+  position: absolute;
+  inset: 0;
+  background-image: url('/demogorgon.png');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  --tx: calc(var(--x) - 24px);
+  --ty: calc(var(--y) - 18px);
+  mask-image:
+    radial-gradient(
+      circle 320px at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 380px at calc(var(--x) + 60px) calc(var(--y) - 40px),
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.4) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 260px at calc(var(--x) - 50px) calc(var(--y) + 30px),
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 40%,
+      transparent 70%
+    );
+  -webkit-mask-image:
+    radial-gradient(
+      circle 320px at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 380px at calc(var(--x) + 60px) calc(var(--y) - 40px),
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.4) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 260px at calc(var(--x) - 50px) calc(var(--y) + 30px),
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 40%,
+      transparent 70%
+    );
+  animation: hero-fire-pulse 3s ease-in-out infinite;
+}
+
+.fire-reveal--active {
+  opacity: 1;
+}
+
+.hero-monsters-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-monster {
+  position: absolute;
+  width: clamp(90px, 13vw, 150px);
+  aspect-ratio: 3 / 4;
+  transform: translate(-50%, -50%) scale(0.3);
+  transform-origin: center;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 72, 0.7));
+  opacity: 0;
+}
+
+.hero-monster__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-monster--spawning {
+  animation: hero-monster-spawn 620ms cubic-bezier(0.22, 0.88, 0.32, 1.1) forwards;
+}
+
+.hero-monster--dragging {
+  filter: drop-shadow(0 0 28px rgba(255, 0, 72, 0.9));
+}
+
+.hero-monster--fading {
+  transition:
+    opacity 520ms ease-out,
+    transform 520ms ease-out;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.24) translateY(12px);
+}
+
+@keyframes hero-fire-pulse {
+  0%,
+  100% {
+    filter: blur(0);
+  }
+  50% {
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-monster-spawn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-content {
+    padding: 0 2.25rem 3rem;
+    align-items: flex-end;
+  }
+
+  .hero-right {
+    max-width: 360px;
+  }
+
+  .hero-right-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 1.75rem 3rem;
+  }
+
+  .hero-right {
+    text-align: left;
+  }
+
+  .hero-right-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    background-position: 30% center;
+  }
+
+  .hero-title {
+    font-size: 3.3rem;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+}
+
